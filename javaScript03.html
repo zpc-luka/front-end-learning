@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .container {
+            width: 1200px;
+            height: 600px;
+            background-color: lightblue;
+            box-sizing: border-box;
+            margin: auto;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, .4);
+        }
+
+        .container>span {
+            display: block;
+            font-size: 20px;
+
+        }
+
+        .container>textarea {
+            width: 1085px;
+            height: 300px;
+            margin: 30px 0px;
+            font-size: 20px;
+        }
+
+        .container>div>div {
+            width: 172px;
+            height: 40px;
+            background-color: #333;
+            font-size: 22px;
+            color: #FFF;
+            float: left;
+            margin-right: 10px;
+            line-height: 40px;
+            border-radius: 10px;
+            padding-left: 5px;
+            box-sizing: border-box;
+        }
+
+        .container>div>div>span {
+            color: red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <span>请输入一段字符：</span>
+        <textarea id="inputText"></textarea>
+        <div>
+            <div>总字符：<span id="total">0</span></div>
+            <div>大写字母：<span id="upper">0</span></div>
+            <div>小写字母：<span id="lower">0</span></div>
+            <div>数字字符：<span id="number">0</span></div>
+            <div>汉字字符：<span id="chinese">0</span></div>
+            <div>特殊字符：<span id="other">0</span></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    window.onload = () => {
+        document.getElementById('inputText').onkeydown = (event) => {
+            let e = event || event.window;
+            if (e && e.keyCode === 13) {
+                let text = document.getElementById('inputText').value;
+                let numberResult = {
+                    total: 0,
+                    upper: 0,
+                    lower: 0,
+                    number: 0,
+                    chinese: 0,
+                    other: 0
+                }
+
+                for (let letter of text) {
+                    console.log(letter);
+                    numberResult.total++;
+                    if (letter >= 'A' && letter <= 'Z') numberResult.upper++;
+                    else if (letter >= 'a' && letter <= 'z') numberResult.lower++;
+                    else if (letter >= '\u4E00' && letter <= '\u9FA5') numberResult.chinese++;
+                    else numberResult.other++;
+                }
+                console.log(numberResult);
+
+                let numArray = ['total', 'upper', 'lower', 'number', 'chinese', 'other'];
+
+                numArray.forEach(value => {
+                    document.getElementById(value).innerHTML = eval(`numberResult.${value}`);
+                })
+
+
+
+            }
+        }
+    }
+
+</script>

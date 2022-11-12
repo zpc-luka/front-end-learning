@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定义变量和常量</title>
+    <style>
+        #result {
+            width: 800px;
+            height: 500px;
+            background-color: lightblue;
+            padding: 30px;
+            border-radius: 20px;
+            line-height: 100px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="radii" placeholder="请输入圆的半径">
+    <input type="button" id="btn01" value="计算">
+    <br>
+    <div id="result">
+    </div>
+</body>
+
+</html>
+<script>
+    const PI = 3.14
+    document.getElementById("btn01").onclick = function () {
+        let inputNum = document.getElementById("radii").value;
+
+        if (isNaN(inputNum)) {
+            alert("please input a number");
+            document.getElementById("radii").value = "";
+        } else {
+            let res = `周长:${2 * PI * inputNum}<br> 面积: ${PI * inputNum * inputNum}`;
+            document.getElementById("result").innerHTML = res;
+        }
+
+    }
+</script>
