@@ -1,0 +1,141 @@
+期末考试知识点整理！
+============第一部分：HTML CSS部分 =========
+1. git 
+    1)  git init 初始化 
+    2）git  add .  工作区的所有没有提交的文档提交到索引去
+    3）git commit  -m   提交到本地仓库
+    4）git push gitee master 本地仓库同步到gitee的远程仓库 
+    5） git reset --恢复到指定的版本 
+
+2. CSS
+   1) 盒子模型： 容器的宽度和content、padding、border、margin 
+   2) 定位： static, absolute, relative , fixed 
+       A: 默认的定位：static , static定位模式不受 top, bottom, left, right值的影响
+       B: background-position:5px-10px
+              第一个参数：5px 左右移动，正数就向右， 负数向左
+              第二个参数：-10px 上下移动，正数就向下， 负数向上
+   3） 选择器 
+              id选择器符号： # 
+              类选择器符号： .
+
+
+============第一部分：JS 和TS 部分 =========
+1. JS = ECMAScirpt + BOM +DOM 
+2.  ES6中的箭头函数：
+   1）形参个数如果为1个，可以省略小括号不写;
+   2）如果函数体里面只有一个语句，可以省略大括号不写, 并且他会默认返回 => 符号后面的数据。
+   3）如果函数体有多个语句，则不能省略大括号。
+   4）如果函数体只有一个语句，且返回一个对象，建议是，不要写简写的方式。
+3. 在JS中条件选择支持switch---case 
+4. JSON.parse --- 将文本转为对象 
+5. TS中，Array集合的Partial可以将属性变为可选。
+6. 在 JavaScript中定义变量不能以数字开头 
+7. Array集合reduce函数， 常见的应用：集合中所有元素的累加 
+8. Array集合的find(), 匹配第一个元素
+9. 在TS中有面向对象中，为了简化代码，多个类的相同属性可以通过继承来实现，继承的时候有三种访问修饰符
+  public, protect,private  
+10. padEnd(),  padStart()
+     print('5'.padEnd(5, '0')) => '50000'
+11. Arry集合的遍历方法 
+     1)基本的循环：while, for 
+     2) forEach 
+     3) map 
+12. Js可以操作css
+     隐藏div  1）display="none"  2） visibility="hidden"
+13. Js操作日期 
+     let dt = new Date() --- 获取当前的日期时间
+     dt.getDay() --- 获取当前星期几 
+     dt.getDate() ---- 获取是多少号 
+     dt.getMonth() ---- 获取月份要+1才是当前月份
+14. JS操作日期 
+    比如：获取10天后的日期时间
+    方法01：now.setDate(now.getDate() + 10)
+    方法02： now.setTime(now.getTime()+10天毫秒数)
+
+
+// ===================第三部分 ： Vue======================
+1. Vue 是一款用于构建用户界面的前端框架。它基于标准 HTML、CSS 和 JavaScript 构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任【标准描述】
+2 vue优势：
+   双向数据绑定    轻量级的框架  实现组件化   
+3. vue错误描述
+    vue和react的语法差异很大
+4. Vue常用的开发工具 
+    Chrome浏览器    vs code  vue-devtools 
+5. npm包是安装node.js后具备的包管理工具 
+     -g  全局安装  
+     -S 安装到项目依赖中  [--save]
+     -D 安装到开发环境的依赖
+6. v-model是内置的命令，可以用在自定义组件上 
+7. 控制元素是否显示的指令： v-if  v-show 
+8. vue事件修饰符 ： stop, prevent, self, once 
+9. vue-router可以做路由守卫，全局导航的钩子，有三个参数 ：to, from,next
+10. 打包vue項目： npm run build 
+11. vue组件化开发的优势：提高开发效率， 方便重复使用，便于协同开发，更容易管理维护
+12. vue-route中有两种路由模式：hash模式，history模式
+
+//==========================express =================
+1.  在node.js中， fs模块是用来操作文件，主要是读取文件数据或写入数据到文件
+2.  node.js中Express框架是Web开发框架，基于node.js中http模块做了扩展和优化
+3. Node.js事件循环其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列。
+4. 用户下载并安装主流的node.js安装完成后，就会自动携带npm和npx的工具， 不包含pip工具，pip是python中下载包的工具 
+5.  Express框架中如果想访问和操作数据库，有两种方式： 原生SQL语句和ORM
+6. Express如果想使用中间件，需要用到关键字use
+7. Express目录
+     router --- 路由
+     model---数据库类 
+     controller --- 业务逻辑   
+      view --- 页面模板 
+      public --- 页面静态文件 
+8. 获取req中的数据 
+    1） 查询【分页。。。】 req.query 
+    2)  添加和修改的具体数据： req.body 
+    3)  获取这条记录的id [主键]： req.params
+9. 在Express想跨域， 需要安装cors 
+10. 默认情况无法获取req.body中的数据，需要借助于：bodyparse 
+11. Nodejs描述: 
+   1）简单， Node. js用 JavaScript、JSON进行编码，简单好学。
+   2） 功能强大，非阻塞式I/O，在较慢的网络环境中，可以分块传输数据，事件驱动，擅长高并发访问。
+   3）  轻量级， Node. js本身既是代码又是服务器，前后端使用同一语言。
+   4） 可扩展，可以轻松应对多实例、多服务器架构，同时有海量的第三方应用组件。
+
+// ====================前后端交互 ==============
+1. 标准的5个Api请求 
+   1） /students 【GET】 获取所有学生信息
+   2） /students/id/  【GET】 获取一个学生详情
+   3） /students 【POST】 添加 
+   4） /student/id 【Put】修改
+   5） /student/id 【DELETE】删除
+
+2. 前端请求后端数据的时候，前后端的URL中（ 协议、主机名、端口）只要有一个不同，就属于跨域请求
+
+3. restful风格api接口中，删除成功返回的状态码为204
+4. 在标准的jwt的认证中，服务器端不需要存储任何token信息
+
+
+// ==================数据库 ===================
+1. 查询 ：
+    where条件  x between y and z等同于x≥y && x≤z  
+2. 在查询的时候条件必须要放置在where中
+3. 查询的支持的聚合函数： max(), min(),avg(), count(), sum（） ,没有total()
+4. 查询的时候判断不等于有三种写法
+    1）  sname！=“晓明”  2）  sname<>“晓明”   3) sname not in (“晓明” )
+5. 在嵌套查询的时候 in关键字，
+    in --- 只要有一个匹配就可以 
+    等价于 =some  , =any
+6. mysql中连接查询的关键字join, mysql中支持的连接查询 ：
+   内连接，左外连接，右外连接，交叉连接，。。。。
+7. name  like ‘%abc%’ -- 只要name中包含abc就可以了
+8. sql查询中排序： 
+    ASC--升序
+    DESC --降序
+9. mysql中查询的时候用于匹配正则的关键字： regexp
+10. 查询的时候如果想显示前10行： limit 10 
+12. 用户-角色 ，需要的逻辑，一个用户可以属于多个角色，一个角色可以包含多个用户，many-to-many
+
+
+
+
+
+
+
+
